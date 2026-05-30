@@ -1,5 +1,6 @@
 package com.ultreon.mods.masterweapons.client.renderer.entity;
 
+import com.ultreon.mods.masterweapons.MasterWeapons;
 import com.ultreon.mods.masterweapons.world.entity.projectile.UltranArrow;
 import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -14,8 +15,6 @@ public class UltranArrowRenderer extends ArrowRenderer<UltranArrow> {
 
     @Override
     public ResourceLocation getTextureLocation(UltranArrow pEntity) {
-        Item referenceItem = pEntity.getPickupItem().getItem();
-        ResourceLocation registryName = BuiltInRegistries.ITEM.getKey(referenceItem);
-        return new ResourceLocation(registryName.getNamespace(), "textures/entity/projectiles/" + registryName.getPath() + ".png");
+        return ResourceLocation.fromNamespaceAndPath(MasterWeapons.MOD_ID, "textures/entity/projectiles/ultran_arrow.png");
     }
 }

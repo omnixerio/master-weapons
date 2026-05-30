@@ -3,6 +3,7 @@ package com.ultreon.mods.masterweapons.mixin;
 import com.ultreon.mods.masterweapons.common.UltranArmorBase;
 import com.ultreon.mods.masterweapons.common.UltranToolBase;
 import com.ultreon.mods.masterweapons.common.UltranWeaponBase;
+import net.minecraft.core.Holder;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -22,68 +23,68 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
  */
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
-    @Inject(method = "getEnchantmentLevel(Lnet/minecraft/world/item/enchantment/Enchantment;Lnet/minecraft/world/entity/LivingEntity;)I", at = @At("RETURN"), cancellable = true)
-    private static void master_weapons$getEnchantmentLevel(Enchantment pEnchantment, LivingEntity pEntity, CallbackInfoReturnable<Integer> cir) {
-        ItemStack itemInHand = pEntity.getItemInHand(InteractionHand.MAIN_HAND);
+    @Inject(method = "getEnchantmentLevel", at = @At("RETURN"), cancellable = true)
+    private static void master_weapons$getEnchantmentLevel(Holder<Enchantment> enchantment, LivingEntity livingEntity, CallbackInfoReturnable<Integer> cir) {
+        ItemStack itemInHand = livingEntity.getItemInHand(InteractionHand.MAIN_HAND);
         if (itemInHand.getItem() instanceof UltranWeaponBase) {
-            if (pEnchantment == Enchantments.MOB_LOOTING) {
+            if (enchantment.equals(Enchantments.LOOTING)) {
                 cir.setReturnValue(10);
-            } else if (pEnchantment == Enchantments.SWEEPING_EDGE) {
+            } else if (enchantment.equals(Enchantments.SWEEPING_EDGE)) {
                 cir.setReturnValue(5);
-            } else if (pEnchantment == Enchantments.FIRE_ASPECT) {
+            } else if (enchantment.equals(Enchantments.FIRE_ASPECT)) {
                 cir.setReturnValue(2);
-            } else if (pEnchantment == Enchantments.KNOCKBACK) {
+            } else if (enchantment.equals(Enchantments.KNOCKBACK)) {
                 cir.setReturnValue(10);
-            } else if (pEnchantment == Enchantments.UNBREAKING) {
+            } else if (enchantment.equals(Enchantments.UNBREAKING)) {
                 cir.setReturnValue(10);
             }
         } else if (itemInHand.getItem() instanceof UltranToolBase) {
-            if (pEnchantment == Enchantments.BLOCK_FORTUNE) {
+            if (enchantment.equals(Enchantments.FORTUNE)) {
                 cir.setReturnValue(10);
-            } else if (pEnchantment == Enchantments.MENDING) {
+            } else if (enchantment.equals(Enchantments.MENDING)) {
                 cir.setReturnValue(1);
-            } else if (pEnchantment == Enchantments.UNBREAKING) {
+            } else if (enchantment.equals(Enchantments.UNBREAKING)) {
                 cir.setReturnValue(10);
-            } else if (pEnchantment == Enchantments.FIRE_ASPECT) {
+            } else if (enchantment.equals(Enchantments.FIRE_ASPECT)) {
                 cir.setReturnValue(2);
-            } else if (pEnchantment == Enchantments.KNOCKBACK) {
+            } else if (enchantment.equals(Enchantments.KNOCKBACK)) {
                 cir.setReturnValue(10);
-            } else if (pEnchantment == Enchantments.SWEEPING_EDGE) {
+            } else if (enchantment.equals(Enchantments.SWEEPING_EDGE)) {
                 cir.setReturnValue(5);
-            } else if (pEnchantment == Enchantments.MOB_LOOTING) {
+            } else if (enchantment.equals(Enchantments.LOOTING)) {
                 cir.setReturnValue(10);
             }
         } else {
             for (var slot : EquipmentSlot.values()) {
-                var item = pEntity.getItemBySlot(slot);
+                var item = livingEntity.getItemBySlot(slot);
                 if (item.getItem() instanceof UltranArmorBase) {
                     if (item.getItem() instanceof ArmorItem armor) {
                         EquipmentSlot equipmentSlot = armor.getEquipmentSlot();
                         switch (equipmentSlot) {
                             case HEAD -> {
-                                if (pEnchantment == Enchantments.AQUA_AFFINITY) {
+                                if (enchantment.equals(Enchantments.AQUA_AFFINITY)) {
                                     cir.setReturnValue(1);
-                                } else if (pEnchantment == Enchantments.RESPIRATION) {
+                                } else if (enchantment.equals(Enchantments.RESPIRATION)) {
                                     cir.setReturnValue(5);
                                 }
                             }
                             case FEET -> {
-                                if (pEnchantment == Enchantments.FALL_PROTECTION) {
+                                if (enchantment.equals(Enchantments.FEATHER_FALLING)) {
                                     cir.setReturnValue(100);
-                                } else if (pEnchantment == Enchantments.DEPTH_STRIDER) {
+                                } else if (enchantment.equals(Enchantments.DEPTH_STRIDER)) {
                                     cir.setReturnValue(10);
                                 }
                             }
                         }
                     }
 
-                    if (pEnchantment == Enchantments.MENDING) {
+                    if (enchantment.equals(Enchantments.MENDING)) {
                         cir.setReturnValue(1);
-                    } else if (pEnchantment == Enchantments.UNBREAKING) {
+                    } else if (enchantment.equals(Enchantments.UNBREAKING)) {
                         cir.setReturnValue(10);
-                    } else if (pEnchantment == Enchantments.THORNS) {
+                    } else if (enchantment.equals(Enchantments.THORNS)) {
                         cir.setReturnValue(100);
-                    } else if (pEnchantment == Enchantments.ALL_DAMAGE_PROTECTION) {
+                    } else if (enchantment.equals(Enchantments.PROTECTION)) {
                         cir.setReturnValue(100);
                     }
                 }

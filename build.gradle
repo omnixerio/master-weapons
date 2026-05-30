@@ -48,11 +48,15 @@ allprojects {
                 includeGroup "curse.maven"
             }
         }
+
+        maven {
+            url "https://maven.neoforged.net/releases"
+        }
     }
 
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
-        options.release = 17
+        options.release = 21
     }
 
     java {

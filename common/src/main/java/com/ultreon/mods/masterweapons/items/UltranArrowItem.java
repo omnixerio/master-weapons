@@ -1,28 +1,28 @@
 package com.ultreon.mods.masterweapons.items;
 
+import com.ultreon.mods.masterweapons.init.ModEntities;
 import com.ultreon.mods.masterweapons.world.entity.projectile.UltranArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class UltranArrowItem extends ArrowItem {
     public UltranArrowItem(Properties properties) {
         super(properties);
     }
 
-    @NotNull
     @Override
-    public AbstractArrow createArrow(@NotNull Level level, @NotNull ItemStack stack, @NotNull LivingEntity shooter) {
-        UltranArrow arrow = new UltranArrow(shooter, level, this);
+    public AbstractArrow createArrow(Level level, ItemStack itemStack, LivingEntity livingEntity, @Nullable ItemStack itemStack2) {
+        UltranArrow arrow = new UltranArrow(ModEntities.ULTRAN_ARROW.get(), livingEntity, level, itemStack.copyWithCount(1), itemStack2);
         arrow.setBaseDamage(Double.POSITIVE_INFINITY);
         return arrow;
     }
 
     public boolean isInfinite(ItemStack stack, ItemStack bow, net.minecraft.world.entity.player.Player player) {
-        int enchant = net.minecraft.world.item.enchantment.EnchantmentHelper.getItemEnchantmentLevel(net.minecraft.world.item.enchantment.Enchantments.INFINITY_ARROWS, bow);
-        return enchant > 0 && this.getClass() == UltranArrowItem.class;
+        return this.getClass() == UltranArrowItem.class;
     }
 }

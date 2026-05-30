@@ -12,24 +12,24 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class UltranArrow extends AbstractArrow {
-    private final ArrowItem referenceItem;
-
     public UltranArrow(EntityType<? extends AbstractArrow> type, Level level) {
         super(type, level);
-        this.referenceItem = ModItems.ULTRAN_ARROW.get();
     }
 
-    public UltranArrow(LivingEntity shooter, Level level, ArrowItem referenceItem) {
-        super(ModEntities.ULTRAN_ARROW.get(), shooter, level);
-        this.referenceItem = referenceItem;
+    public UltranArrow(EntityType<? extends AbstractArrow> entityType, double d, double e, double f, Level level, ItemStack itemStack, @Nullable ItemStack itemStack2) {
+        super(entityType, d, e, f, level, itemStack, itemStack2);
     }
 
-    @NotNull
+    public UltranArrow(EntityType<? extends AbstractArrow> entityType, LivingEntity livingEntity, Level level, ItemStack pickupItem, @Nullable ItemStack firedFromWeapon) {
+        super(entityType, livingEntity, level, pickupItem, firedFromWeapon);
+    }
+
     @Override
-    public ItemStack getPickupItem() {
-        return new ItemStack(referenceItem);
+    protected ItemStack getDefaultPickupItem() {
+        return new ItemStack(ModItems.ULTRAN_ARROW.get());
     }
 
     @Override

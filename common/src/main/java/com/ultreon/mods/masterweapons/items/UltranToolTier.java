@@ -1,8 +1,11 @@
 package com.ultreon.mods.masterweapons.items;
 
 import com.ultreon.mods.masterweapons.init.ModItems;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -76,16 +79,9 @@ public class UltranToolTier implements Tier {
         return Float.POSITIVE_INFINITY;
     }
 
-    /**
-     * Get the level of tool tier.
-     *
-     * @return the harvest level, is six for all tools and weapons.
-     * @author Qboi
-     * @since 2.0.0
-     */
     @Override
-    public int getLevel() {
-        return 6;
+    public TagKey<Block> getIncorrectBlocksForDrops() {
+        return ModBlockTags.INCORRECT_FOR_ULTRAN_TOOL;
     }
 
     /**

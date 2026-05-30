@@ -2,6 +2,7 @@ package com.ultreon.mods.masterweapons;
 
 import com.ultreon.mods.masterweapons.client.ClientEvents;
 import com.ultreon.mods.masterweapons.client.ClientInitialization;
+import com.ultreon.mods.masterweapons.init.ModArmorMaterials;
 import com.ultreon.mods.masterweapons.init.ModBlocks;
 import com.ultreon.mods.masterweapons.init.ModEntities;
 import com.ultreon.mods.masterweapons.init.ModItems;
@@ -60,6 +61,7 @@ public class MasterWeapons {
         ModBlocks.register();
         ModItems.register();
         ModEntities.register();
+        ModArmorMaterials.register();
 
         LOGGER.info(INIT_MARKER, "Initialized Master Weapons Mod.");
 
@@ -81,7 +83,7 @@ public class MasterWeapons {
     }
 
     public static ResourceLocation res(String path) {
-        return new ResourceLocation(MOD_ID, path);
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
     public CommonEvents getCommonEvents() {

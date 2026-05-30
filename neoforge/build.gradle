@@ -4,15 +4,23 @@ plugins {
 
 architectury {
     platformSetupLoomIde()
-    fabric()
+    neoForge()
 }
 
 base {
-    archivesName = "master-weapons-fabric"
+    archivesName = "master-weapons-forge"
 }
 
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
+
+//    forge {
+//        convertAccessWideners = true
+//        extraAccessWideners.add loom.accessWidenerPath.get().asFile.name
+//
+//        mixinConfig "masterweapons-common.mixins.json"
+//        mixinConfig "masterweapons.mixins.json"
+//    }
 }
 
 configurations {
@@ -20,41 +28,28 @@ configurations {
     shadowCommon // Don't use shadow from the shadow plugin because we don't want IDEA to index this.
     compileClasspath.extendsFrom common
     runtimeClasspath.extendsFrom common
-    developmentFabric.extendsFrom common
-}
-
-repositories {
-    flatDir {
-        dir "$projectDir/libs"
-    }
-
-    maven { url "https://maven.terraformersmc.com/releases" }
+    developmentForge.extendsFrom common
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
-    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+    neoForge "net.neoforged:neoforge:$neoforge_version"
     // Remove the next line if you don't want to depend on the API
-    modApi "dev.architectury:architectury-fabric:${architectury_version}"
+    modApi "dev.architectury:architectury-neoforge:${architectury_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
-
-    // Essential mods.
-    modImplementation "com.terraformersmc:modmenu:$modmenu_version", {
-        exclude module: "fabric-api"
-    }
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
 processResources {
     inputs.property "version", project.version
 
-    filesMatching("fabric.mod.json") {
+    filesMatching("META-INF/mods.toml") {
         expand "version": project.version
     }
 }
 
 shadowJar {
+    exclude "fabric.mod.json"
     exclude "architectury.common.json"
 
     configurations = [project.configurations.shadowCommon]
@@ -62,7 +57,6 @@ shadowJar {
 }
 
 remapJar {
-    injectAccessWidener = true
     input.set shadowJar.archiveFile
     dependsOn shadowJar
     archiveClassifier = null
@@ -86,7 +80,7 @@ components.java {
 
 publishing {
     publications {
-        mavenFabric(MavenPublication) {
+        mavenForge(MavenPublication) {
             artifactId = rootProject.archives_base_name + "-" + project.name
             from components.java
         }

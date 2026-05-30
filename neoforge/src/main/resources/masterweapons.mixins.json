@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.ultreon.mods.masterweapons.mixin.fabric",
+  "package": "com.ultreon.mods.masterweapons.mixin.forge",
   "compatibilityLevel": "JAVA_21",
   "client": [
   ],
