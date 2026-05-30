@@ -7,6 +7,10 @@ architectury {
     forge()
 }
 
+base {
+    archivesName = "master-weapons-forge"
+}
+
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 

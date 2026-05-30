@@ -7,6 +7,10 @@ architectury {
     fabric()
 }
 
+base {
+    archivesName = "master-weapons-fabric"
+}
+
 loom {
     accessWidenerPath = project(":common").loom.accessWidenerPath
 }
