@@ -25,7 +25,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Pickaxe
  * This pickaxe is a destroyer of planets.
  *
- * @author XyperCode
+ * @author Qboi
  * @see UltranToolTier
  * @since 2.0.0
  */

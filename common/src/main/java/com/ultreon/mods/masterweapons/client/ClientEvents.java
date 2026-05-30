@@ -6,7 +6,7 @@ import org.slf4j.MarkerFactory;
 /**
  * Client side events.
  *
- * @author XyperCode
+ * @author Qboi
  * @since 3.0.0
  */
 

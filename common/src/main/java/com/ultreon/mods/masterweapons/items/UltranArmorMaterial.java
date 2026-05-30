@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Ultran armor material.
  *
- * @author XyperCode
+ * @author Qboi
  * @since 2.0.0
  */
 public class UltranArmorMaterial implements ArmorMaterial {
@@ -27,7 +27,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the instance.
      *
      * @return the instance.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     public static UltranArmorMaterial getInstance() {
@@ -37,7 +37,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
     /**
      * Constructor for the Ultran Armor Material.
      *
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     private UltranArmorMaterial() {
@@ -48,7 +48,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      *
      * @param slotIn the armor slot.
      * @return the durability, always positive infinity.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @Override
@@ -61,7 +61,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      *
      * @param slotIn the armor slot.
      * @return the damage reduction amount, always positive infinity.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @Override
@@ -73,7 +73,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the enchantment value.
      *
      * @return the enchantment value, always positive infinity.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @Override
@@ -85,7 +85,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the sound for equipping the armor.
      *
      * @return diamond equip sound.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @NotNull
@@ -98,7 +98,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the ingredient to repair the item with.
      *
      * @return an ingredient instance containing the master ingot item
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @NotNull
@@ -111,7 +111,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the type identifier.
      *
      * @return the resource location: {@code masterweapons:ultran}
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @NotNull
@@ -124,7 +124,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the armor toughness.
      *
      * @return the armor toughness, always positive infinity.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @Override
@@ -136,7 +136,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the knockback resistance.
      *
      * @return 1024.0f
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @Override

@@ -29,7 +29,7 @@ import static net.minecraft.world.entity.ai.attributes.Attributes.*;
  * Ultran Armor
  * The ultran armor isn't your average armor. It's the most powerful armor ever. Making every being invincible with more effects.
  *
- * @author XyperCode
+ * @author Qboi
  * @see UltranArmorMaterial
  * @since 2.0.0
  */

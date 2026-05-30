@@ -12,7 +12,7 @@ import org.slf4j.MarkerFactory;
 /**
  * Client side initialization events.
  *
- * @author XyperCode
+ * @author Qboi
  * @since 3.0.0
  */
 public class ClientInitialization {

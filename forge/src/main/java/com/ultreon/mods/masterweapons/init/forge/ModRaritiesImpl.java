@@ -6,7 +6,7 @@ import net.minecraft.world.item.Rarity;
 /**
  * Rarity initialization class.
  *
- * @author XyperCode
+ * @author Qboi
  * @since 3.0.0
  */
 public class ModRaritiesImpl {

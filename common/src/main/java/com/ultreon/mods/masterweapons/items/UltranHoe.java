@@ -24,7 +24,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Hoe
  * This is not your ordinary hoe, it is a weapon. Allowing the player to kill anything in a single hit.
  *
- * @author XyperCode
+ * @author Qboi
  * @see UltranToolTier
  */
 public class UltranHoe extends HoeItem implements UltranToolBase {

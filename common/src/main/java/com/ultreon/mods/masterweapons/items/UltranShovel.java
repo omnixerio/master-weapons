@@ -26,7 +26,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Shovel
  * The ultran shovel is a destroyer of nature.
  *
- * @author XyperCode
+ * @author Qboi
  * @see UltranToolTier
  * @since 2.0.0
  */
@@ -34,7 +34,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
     /**
      * Constructor
      *
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     public UltranShovel() {
@@ -46,7 +46,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
      *
      * @param stack the item stack to get the rarity for.
      * @return the rarity.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @NotNull
@@ -61,7 +61,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
      * @param stack the item stack instance.
      * @param state the state of the block to check the speed to destroy the block for.
      * @return the speed to destroy a block.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @Override
@@ -74,7 +74,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
      *
      * @param equipmentSlot the equipment slot to get the attribute modifiers for.
      * @return an multi-mapping for attribute to modifier.
-     * @author XyperCode
+     * @author Qboi
      * @since 2.0.0
      */
     @NotNull

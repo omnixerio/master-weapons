@@ -25,7 +25,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Axe
  * The ultran axe is not just a tool or weapon, it's a super weapon.
  *
- * @author XyperCode
+ * @author Qboi
  * @see UltranToolTier
  */
 public class UltranAxe extends AxeItem implements UltranToolBase {

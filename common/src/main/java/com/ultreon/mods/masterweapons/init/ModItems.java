@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 /**
  * Item initialization class.
  *
- * @author XyperCode
+ * @author Qboi
  * @see Item
  * @since 2.0.0
  */

@@ -14,11 +14,11 @@ import java.util.List;
 @SuppressWarnings("UnstableApiUsage")
 public class CreativeTabModifiers {
     public static void modifyCreativeTabs() {
-        CreativeTabRegistry.modify(CreativeModeTabs.COMBAT, CreativeTabModifiers::addCombatItems);
-        CreativeTabRegistry.modify(CreativeModeTabs.TOOLS_AND_UTILITIES, CreativeTabModifiers::addToolsAndUtilities);
-        CreativeTabRegistry.modify(CreativeModeTabs.NATURAL_BLOCKS, CreativeTabModifiers::addNaturalBlocks);
-        CreativeTabRegistry.modify(CreativeModeTabs.BUILDING_BLOCKS, CreativeTabModifiers::addBuildingBlocks);
-        CreativeTabRegistry.modify(CreativeModeTabs.INGREDIENTS, CreativeTabModifiers::addIngredients);
+        CreativeTabRegistry.modify(CreativeTabRegistry.defer(CreativeModeTabs.COMBAT), CreativeTabModifiers::addCombatItems);
+        CreativeTabRegistry.modify(CreativeTabRegistry.defer(CreativeModeTabs.TOOLS_AND_UTILITIES), CreativeTabModifiers::addToolsAndUtilities);
+        CreativeTabRegistry.modify(CreativeTabRegistry.defer(CreativeModeTabs.NATURAL_BLOCKS), CreativeTabModifiers::addNaturalBlocks);
+        CreativeTabRegistry.modify(CreativeTabRegistry.defer(CreativeModeTabs.BUILDING_BLOCKS), CreativeTabModifiers::addBuildingBlocks);
+        CreativeTabRegistry.modify(CreativeTabRegistry.defer(CreativeModeTabs.INGREDIENTS), CreativeTabModifiers::addIngredients);
     }
 
     private static void addNaturalBlocks(FeatureFlagSet flags, CreativeTabOutput output, boolean canUseGameMasterBlocks) {
