@@ -1,34 +1,25 @@
 package com.ultreon.mods.masterweapons.items;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import com.ultreon.mods.masterweapons.common.UltranToolBase;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
+import com.ultreon.mods.masterweapons.init.ModToolMaterials;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-
-import static com.ultreon.mods.masterweapons.Constants.BASE_ATTACK_KNOCKBACK_UUID;
-import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
 
 /**
  * Ultran Hoe
  * This is not your ordinary hoe, it is a weapon. Allowing the player to kill anything in a single hit.
  *
  * @author Qboi
- * @see UltranToolTier
+ * @see ModToolMaterials#ULTRAN
  */
 public class UltranHoe extends HoeItem implements UltranToolBase {
     /**
      * Constructor
      */
-    public UltranHoe() {
-        super(UltranToolTier.getInstance(), TOOL_PROPERTY);
+    public UltranHoe(Properties properties) {
+        super(ModToolMaterials.ULTRAN, -1, -2.4F, properties);
     }
 
     /**

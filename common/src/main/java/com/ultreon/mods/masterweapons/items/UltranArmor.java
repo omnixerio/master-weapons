@@ -2,17 +2,18 @@ package com.ultreon.mods.masterweapons.items;
 
 import com.ultreon.mods.masterweapons.common.UltranArmorBase;
 import com.ultreon.mods.masterweapons.init.ModArmorMaterials;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
-import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-
-import static com.ultreon.mods.masterweapons.Constants.ARMOR_PROPERTY;
+import org.jspecify.annotations.Nullable;
 
 /**
  * Ultran Armor
@@ -22,7 +23,9 @@ import static com.ultreon.mods.masterweapons.Constants.ARMOR_PROPERTY;
  * @see ModArmorMaterials
  * @since 2.0.0
  */
-public class UltranArmor extends ArmorItem implements UltranArmorBase {
+public class UltranArmor extends Item implements UltranArmorBase {
+
+    private EquipmentSlot slot;
 
     /**
      * Constructor
@@ -30,8 +33,10 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      * @param type the armor item type.
      * @since 2.0.0
      */
-    public UltranArmor(Type type) {
-        super(ModArmorMaterials.ULTRAN, type, ARMOR_PROPERTY);
+    public UltranArmor(Properties properties, ArmorType type) {
+        super(properties.humanoidArmor(ModArmorMaterials.ULTRAN, type));
+
+        this.slot = type.getSlot();
     }
 
     /**
@@ -47,12 +52,14 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     }
 
     @Override
-    public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean bl) {
-        if (!(entity instanceof LivingEntity living) || !living.getItemBySlot(getEquipmentSlot()).is(this)) {
+    public void inventoryTick(ItemStack itemStack, ServerLevel level, Entity owner, @Nullable EquipmentSlot slot) {
+        if (slot == null) return;
+
+        if (!(owner instanceof LivingEntity living) || !living.getItemBySlot(slot).is(this)) {
             return;
         }
 
-        switch (getEquipmentSlot()) {
+        switch (slot) {
             case HEAD -> tickHeadItem(living);
             case CHEST -> tickChestItem(living);
             case LEGS, FEET -> tickMisc(living);
@@ -77,9 +84,11 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
         if (living instanceof Player player) {
             FoodData foodData = player.getFoodData();
             foodData.setFoodLevel(20);
-            foodData.setExhaustion(0.0F);
             foodData.setSaturation(20.0F);
         }
     }
 
+    public EquipmentSlot getEquipmentSlot() {
+        return slot;
+    }
 }

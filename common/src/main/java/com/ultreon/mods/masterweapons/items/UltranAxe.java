@@ -1,26 +1,25 @@
 package com.ultreon.mods.masterweapons.items;
 
 import com.ultreon.mods.masterweapons.common.UltranToolBase;
+import com.ultreon.mods.masterweapons.init.ModToolMaterials;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-
-import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
 
 /**
  * Ultran Axe
  * The ultran axe is not just a tool or weapon, it's a super weapon.
  *
  * @author Qboi
- * @see UltranToolTier
+ * @see ModToolMaterials#ULTRAN
  */
 public class UltranAxe extends AxeItem implements UltranToolBase {
     /**
      * Constructor
      */
-    public UltranAxe() {
-        super(UltranToolTier.getInstance(), TOOL_PROPERTY);
+    public UltranAxe(Properties properties) {
+        super(ModToolMaterials.ULTRAN, 10.0F, -2.4F, properties);
     }
 
     /**

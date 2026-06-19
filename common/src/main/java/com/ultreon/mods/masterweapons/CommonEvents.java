@@ -5,9 +5,11 @@ import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
 import dev.architectury.event.events.common.TickEvent;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.equipment.ArmorType;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
@@ -31,9 +33,10 @@ public class CommonEvents {
     }
 
     private static boolean hasUltranArmor(LivingEntity entity) {
-        Iterable<ItemStack> armorSlots = entity.getArmorSlots();
         boolean hasUltranArmor = true;
-        for (ItemStack stack : armorSlots) {
+        for (ArmorType value : ArmorType.values()) {
+            EquipmentSlot slot = value.getSlot();
+            ItemStack stack = entity.getItemBySlot(slot);
             hasUltranArmor &= stack.getItem() instanceof UltranArmorBase;
         }
         return hasUltranArmor;

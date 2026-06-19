@@ -5,10 +5,12 @@ import dev.architectury.platform.Platform;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
+import net.minecraft.world.level.chunk.LevelChunk;
 
 public class Debugger {
     public static void onChunkLoad(LevelAccessor world, ChunkAccess chunk) {
@@ -25,7 +27,7 @@ public class Debugger {
                     BlockState blockState = chunk.getBlockState(blockPos);
                     boolean isUltranOre = blockState.is(ModBlocks.ULTRAN_ORE.get()) || blockState.is(ModBlocks.DEEPSLATE_ULTRAN_ORE.get());
 
-                    BlockPos exactCoords = blockPos.offset(chunkPos.x * 16, 0, chunkPos.z * 16);
+                    BlockPos exactCoords = blockPos.offset(chunkPos.x() * 16, 0, chunkPos.z() * 16);
 
                     if (isUltranOre) {
                         world.players().forEach(player -> player.sendSystemMessage(Component.empty()
@@ -38,5 +40,9 @@ public class Debugger {
                 }
             }
         }
+    }
+
+    public static void onChunkLoad(ServerLevel serverLevel, LevelChunk levelChunk, boolean b) {
+        onChunkLoad(serverLevel, levelChunk);
     }
 }

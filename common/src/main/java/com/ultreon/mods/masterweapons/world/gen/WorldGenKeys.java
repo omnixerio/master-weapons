@@ -12,6 +12,6 @@ public class WorldGenKeys {
     public static final ResourceKey<PlacedFeature> PLACED_ULTRAN_ORE = registerKey(Registries.PLACED_FEATURE, "ultran_ore");
 
     private static <T> ResourceKey<T> registerKey(ResourceKey<? extends Registry<T>> registryKey, String id) {
-        return ResourceKey.create(registryKey, MasterWeapons.res(id));
+        return ResourceKey.create(registryKey, MasterWeapons.id(id));
     }
 }

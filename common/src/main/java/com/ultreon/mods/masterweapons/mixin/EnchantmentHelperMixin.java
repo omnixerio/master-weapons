@@ -3,11 +3,11 @@ package com.ultreon.mods.masterweapons.mixin;
 import com.ultreon.mods.masterweapons.common.UltranArmorBase;
 import com.ultreon.mods.masterweapons.common.UltranToolBase;
 import com.ultreon.mods.masterweapons.common.UltranWeaponBase;
+import com.ultreon.mods.masterweapons.items.UltranArmor;
 import net.minecraft.core.Holder;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -58,7 +58,7 @@ public class EnchantmentHelperMixin {
             for (var slot : EquipmentSlot.values()) {
                 var item = livingEntity.getItemBySlot(slot);
                 if (item.getItem() instanceof UltranArmorBase) {
-                    if (item.getItem() instanceof ArmorItem armor) {
+                    if (item.getItem() instanceof UltranArmor armor) {
                         EquipmentSlot equipmentSlot = armor.getEquipmentSlot();
                         switch (equipmentSlot) {
                             case HEAD -> {

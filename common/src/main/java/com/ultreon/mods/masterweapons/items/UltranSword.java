@@ -1,17 +1,17 @@
 package com.ultreon.mods.masterweapons.items;
 
 import com.ultreon.mods.masterweapons.common.UltranMeleeWeaponBase;
+import com.ultreon.mods.masterweapons.init.ModToolMaterials;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
-
-import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
+import org.jspecify.annotations.NonNull;
 
 /**
  * Ultran sword is a sword that is made of Ultran.
@@ -20,16 +20,16 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * @author Qboi
  * @see UltranToolTier
  */
-public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
+public class UltranSword extends Item implements UltranMeleeWeaponBase {
     /**
      * Constructor
      */
-    public UltranSword() {
-        super(UltranToolTier.getInstance(), TOOL_PROPERTY);
+    public UltranSword(Properties properties) {
+        super(properties.sword(ModToolMaterials.ULTRAN, Float.POSITIVE_INFINITY, -2.4F));
     }
 
     @Override
-    public float getAttackDamageBonus(Entity entity, float f, DamageSource damageSource) {
+    public float getAttackDamageBonus(@NonNull Entity entity, float f, @NonNull DamageSource damageSource) {
         return Float.POSITIVE_INFINITY;
     }
 
@@ -45,9 +45,8 @@ public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
         return Float.MAX_VALUE;
     }
 
-
     @Override
-    public boolean canAttackBlock(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
+    public boolean canDestroyBlock(@NonNull ItemStack itemStack, @NonNull BlockState state, @NonNull Level level, @NonNull BlockPos pos, @NonNull LivingEntity user) {
         return false;
     }
 }
