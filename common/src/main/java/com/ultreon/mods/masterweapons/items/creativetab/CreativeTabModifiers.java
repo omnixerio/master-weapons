@@ -58,6 +58,15 @@ public class CreativeTabModifiers {
                 new ItemStack(ModItems.ULTRAN_CHESTPLATE.get()),
                 new ItemStack(ModItems.ULTRAN_HELMET.get())
         ));
+        output.acceptAllAfter(Items.NETHERITE_HORSE_ARMOR, List.of(
+                new ItemStack(ModItems.ULTRAN_HORSE_ARMOR.get())
+        ));
+        output.acceptAllAfter(Items.NETHERITE_NAUTILUS_ARMOR, List.of(
+                new ItemStack(ModItems.ULTRAN_NAUTILUS_ARMOR.get())
+        ));
+        output.acceptAllAfter(Items.NETHERITE_SPEAR, List.of(
+                new ItemStack(ModItems.ULTRAN_SPEAR.get())
+        ));
     }
 
 }

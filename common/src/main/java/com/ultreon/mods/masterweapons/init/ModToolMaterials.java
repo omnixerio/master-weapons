@@ -12,4 +12,8 @@ public class ModToolMaterials {
             Integer.MAX_VALUE,
             ModItemTags.REPAIRS_ULTRAN_TOOL
     );
+
+    public static void register() {
+
+    }
 }

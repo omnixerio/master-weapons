@@ -2,10 +2,7 @@ package com.ultreon.mods.masterweapons;
 
 import com.ultreon.mods.masterweapons.client.ClientEvents;
 import com.ultreon.mods.masterweapons.client.ClientInitialization;
-import com.ultreon.mods.masterweapons.init.ModArmorMaterials;
-import com.ultreon.mods.masterweapons.init.ModBlocks;
-import com.ultreon.mods.masterweapons.init.ModEntities;
-import com.ultreon.mods.masterweapons.init.ModItems;
+import com.ultreon.mods.masterweapons.init.*;
 import com.ultreon.mods.masterweapons.items.creativetab.CreativeTabModifiers;
 import com.ultreon.mods.masterweapons.world.gen.WorldGeneration;
 import dev.architectury.event.events.common.LifecycleEvent;
@@ -54,6 +51,7 @@ public class MasterWeapons {
         ModItems.register();
         ModEntities.register();
         ModArmorMaterials.register();
+        ModToolMaterials.register();
 
         LOGGER.info(INIT_MARKER, "Initialized Master Weapons Mod.");
 

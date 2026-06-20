@@ -1,0 +1,29 @@
+{
+  "layers": {
+    "horse_body": [
+      {
+        "texture": "masterweapons:ultran"
+      }
+    ],
+    "humanoid": [
+      {
+        "texture": "masterweapons:ultran"
+      }
+    ],
+    "humanoid_baby": [
+      {
+        "texture": "masterweapons:ultran"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "masterweapons:ultran"
+      }
+    ],
+    "nautilus_body": [
+      {
+        "texture": "masterweapons:ultran"
+      }
+    ]
+  }
+}

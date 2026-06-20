@@ -30,6 +30,9 @@ public class ModItems {
     public static final RegistrySupplier<UltranArmor> ULTRAN_CHESTPLATE = register("ultran_chestplate", () -> new UltranArmor(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_chestplate"))), ArmorType.CHESTPLATE));
     public static final RegistrySupplier<UltranArmor> ULTRAN_LEGGINGS = register("ultran_leggings", () -> new UltranArmor(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_leggings"))), ArmorType.LEGGINGS));
     public static final RegistrySupplier<UltranArmor> ULTRAN_BOOTS = register("ultran_boots", () -> new UltranArmor(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_boots"))), ArmorType.BOOTS));
+    public static final RegistrySupplier<UltranSpear> ULTRAN_SPEAR = register("ultran_spear", () -> new UltranSpear(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_spear")))));
+    public static final RegistrySupplier<UltranHorseArmor> ULTRAN_HORSE_ARMOR = register("ultran_horse_armor", () -> new UltranHorseArmor(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_horse_armor")))));
+    public static final RegistrySupplier<UltranNautilusArmor> ULTRAN_NAUTILUS_ARMOR = register("ultran_nautilus_armor", () -> new UltranNautilusArmor(new Item.Properties().nautilusArmor(ModArmorMaterials.ULTRAN).setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_nautilus_armor")))));
     public static final RegistrySupplier<ArrowItem> ULTRAN_ARROW = register("ultran_arrow", () -> new UltranArrowItem(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("ultran_arrow")))));
 
     public static final RegistrySupplier<Item> RAW_ULTRAN = register("raw_ultran", () -> new Item(new Item.Properties().setId(ResourceKey.create(Registries.ITEM, MasterWeapons.id("raw_ultran")))));
